@@ -7,11 +7,17 @@
 \pgfdeclareimage[height=1cm]{uni}{HWU_logo}
 \logo{\pgfuseimage{uni}}
 
-\setbeamertemplate{caption}[numbered]
-
 \usepackage{hyperref}
 \usepackage{cleveref}
 \usepackage{listings}
+\usepackage[square,numbers]{natbib}
+
+\setbeamertemplate{caption}[numbered]
+\setbeamertemplate{bibliography item}[text]
+\setbeamertemplate{bibliography entry title}{}
+\setbeamertemplate{bibliography entry location}{}
+\setbeamertemplate{bibliography entry note}{}
+\renewcommand\bibfont{\scriptsize}
 
 \lstset{basicstyle=\selectfont\ttfamily\color{white},
   showstringspaces=false,
@@ -138,6 +144,8 @@ In these more enlightened times you'll almost certainly be using an IDE to write
 \frametitle{How does it work?}
 \framesubtitle{Using \LaTeX\ at Heriot-Watt}
 The most important thing to know for now of course, is how exactly to use \LaTeX\ on the uni system.
+
+** ASK DAWN IF THIS IS ACTUALLY IMPORTANT **
 \end{frame}
 
 \section{Why use it?}
@@ -167,6 +175,7 @@ The most important thing to know for now of course, is how exactly to use \LaTeX
 \begin{itemize}
 \item Typesetting maths: \(\mathcal{L}\{\rho\} = -i[\hat{H}, \rho] - \frac{\gamma}{2}\left(2 \hat{a}\rho\hat{a}^{\dagger} - \hat{a}^{\dagger}\hat{a}\rho - \rho\hat{a}^{\dagger}\hat{a}\right)\)
 \item Powerful referencing tool: BibTeX
+\item Label system makes cross-referencing easy.
 \item Low file-size, so version control systems like Git can be used.
 \item Low file-size so large documents won't crash!
 \item Many journals provide standard article templates.
@@ -175,7 +184,153 @@ The most important thing to know for now of course, is how exactly to use \LaTeX
 \end{frame}
 
 \section{Basics}
+\lstset{
+  language={TeX},
+  basicstyle=\selectfont\ttfamily\color{black},
+  showstringspaces=false,
+  commentstyle=\color{blue},
+  keywordstyle=\color{green},
+  backgroundcolor=\color{white}
+}
+
+\begin{frame}[fragile]
+\frametitle{Basics}
+\framesubtitle{Preamble}
+So what about the language itself? The following is a pretty standard `preamble' for scientific documents:
+\begin{lstlisting}[label={lst:3}]
+\documentclass[a4paper,twoside]{article}
+
+\usepackage[margin=1.75cm]{geometry}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{cleveref}
+\end{lstlisting}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Basics}
+\framesubtitle{\textbackslash begin\{document\}}
+\begin{lstlisting}[label={lst:4}]
+\author{Oliver Thomson Brown}
+\title{Matrix Product States}
+\date{2016-01-15}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+
+	...
+	
+\end{document}
+\end{lstlisting}
+\end{frame}
+
 \begin{frame}
+\frametitle{Basics}
+\framesubtitle{Commands}
+\begin{itemize}
+\item \textbackslash\ identifies a command sequence (\textbackslash textbackslash typesets a \textbackslash).
+\item \textbackslash\ is also an escape sequence for typesetting symbols like \{, \}, and \&.
+\item \textbackslash\textbackslash\ \emph{requests} a newline.
+\item \textbackslash emph\{\} for \emph{italics}, \textbackslash textbf\{\} for \textbf{bold}.
+\item \textbackslash section\{Section Title\} and \textbackslash subsection\{Subsection Title\} creates sections and subsections which are automatically labelled and included in your table of contents.
+\item \textbackslash label\{\} can be used to label sections, figures, equations, etc. and is \emph{highly} recommended. Especially in conjunction with the cleveref and hyperref packages.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Basics}
+\framesubtitle{Mathematics}
+Inline maths:\\
+\quad \textbackslash( E = \textbackslash frac\{1\}\{2\} mv\^{}\{2\} \textbackslash) \\
+\vspace{\baselineskip}
+\quad One of Einstein's discoveries was the equation \(E = \frac{1}{2}mv^{2}\), equating energy and mass. \\
+\vspace{\baselineskip}
+Display maths:\\
+\quad \textbackslash begin\{equation\} \\
+\quad \quad \textbackslash rho = \textbar \textbackslash psi \textbackslash rangle \textbackslash langle \textbackslash psi \textbar \\
+\quad \quad \textbackslash label\{eq:1\} \\
+\quad \textbackslash end\{equation\} \\
+\begin{equation}
+\quad \rho = | \psi \rangle \langle \psi |
+\label{eq:1}
+\end{equation}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Basics}
+\framesubtitle{Images}
+Honestly, probably the weakest part of working with \LaTeX...
+
+\begin{lstlisting}[label={lst:4}]
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.6\linewidth]
+	{two_head_tortoise}
+	\caption{A two-headed tortoise!}
+	\label{fig:2}
+\end{figure}
+\end{lstlisting}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.5\linewidth]{two_head_tortoise}
+	\caption{A two-headed tortoise!}
+	\label{fig:2}
+\end{figure}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Basics}
+\framesubtitle{BibTeX}
+
+BibTeX is a simple to use, but powerful referencing tool. First you need a .bib file in the same folder -- part of intro\_latex.bib is shown here:
+
+\begin{lstlisting}[label={lst:5}]
+@book{NR,
+year={2007},
+author={Press, William H. and Teukolsky, Saul A. and Vetterling, William T. and Flannery, Brian P.},
+title={Numerical Recipes -- The Art of Scientific Computing},
+publisher={Cambridge University Press},
+edition={3E},
+}
+\end{lstlisting}
+
+The format is quite straightforward, and many journals provide BibTeX citations which you can copy and paste into your own .bib file. In this example `NR' is the citation label.
+
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Basics}
+\framesubtitle{BibTeX}
+Then you need to include a \textbackslash bibliographystyle\{\} command, and \textbackslash bibliography\{your-bib-file\} in the document:
+\begin{lstlisting}[label={lst:6}]
+\bibliographystyle{acm}
+\bibliography{intro_latex}
+\end{lstlisting}
+
+You then simply use the \textbackslash cite\{citation-label\} command to reference things like this conference paper I wrote \cite{Bea13}, or the book \emph{Numerical Recipes} \cite{NR}.
+\end{frame}
+
+\begin{frame}
+\frametitle{Basics}
+\framesubtitle{References}
+\LaTeX\ and BibTeX take care of the rest for you...
+
+\bibliographystyle{acm}
+\bibliography{intro_latex}
+
+Unsurprisingly, many journals also provide their own BibTeX style files. Always worth checking before you try and format references manually!
+
+\end{frame}
+
+\section{Resources}
+\begin{frame}
+\frametitle{Resources}
 \end{frame}
 
 \section{Exercises}
