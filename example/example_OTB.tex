@@ -1,0 +1,31 @@
+\documentclass[a4paper,11pt,twoside]{article}		% The default is NOT A4!
+
+\usepackage[margin=1.75cm]{geometry}		% I almost always use this package to reduce the massive default margins
+\usepackage{amsmath}						% amsmath adds various operators and symbols, but most importantly includes the 'align' display math environment
+\usepackage{amssymb}						% ...adds extra maths symbols. Couldn't honestly tell you whether I use this all the time or not at all -- it's just always there.
+\usepackage{graphicx}					% Required to include graphics.
+\usepackage{hyperref}					% Adds hyperlinks to the table of contents, references, cross-references, and urls given the \url{} tag, when output is a pdf. MUST BE LOADED BEFORE cleveref! 
+\usepackage{cleveref}					% Introduces the \cref{} command for cross referencing -- automatically adds the right label to a reference. Otherwise prepare for lots of 'Figure~\ref{}'.
+\usepackage[section]{placeins}			% Allows a bit more control of graphic placement by the inclusion of the \FloatBarrier command. The 'section' option does this automatically at sections.
+\usepackage{aurical}						% This and fontenc are just here to facilitate that awful subtitle font I've used. Sorrynotsorry.
+\usepackage[T1]{fontenc}
+
+\author{Oliver Thomson Brown}
+\title{\textbf{Example \LaTeX\ Document} \\ {\Fontamici Demonstrating A Selection Of Features Most Arbitrary}}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+
+\section{General Text}
+
+\section{Mathematics}
+
+\section{Graphics}
+
+\section{References}
+
+\end{document}
