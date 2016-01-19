@@ -22,7 +22,28 @@
 
 \section{General Text}
 
+There are a few things relating to simply writing text in \LaTeX\ that probably bear mentioning. First of all quotes -- simply using the single quote mark key on your keyboard leads to 'this'. To get an opening quote mark you actually need to use the backtick key which is just left of the `1' key on a UK keyboard. Additionally, one should never use the double quote key, as "this" happens. The proper procedure is two backticks to open, and two single quote marks to close -- ``wonderful''. What if you need to use both? Then you need to use \verb:\,: to separate them which typesets a thin space. ``It must be admitted that certain things in \LaTeX\ are quite `tiresome'\,''.
+
+Moving on to dashes -- did you know there are actually three?! The one I've been using so far, the humble em dash `--' is typeset by \verb:--: and is a long pause, useful for separating sentences and clauses. Then there's the hyphen, used to combine words like `Heriot-Watt', which is typeset by \verb:-:. Finally there is the en dash `---', which apparently means `through' as in `pages 11---15', and I don't think I have ever bothered to use. So there you go.
+
+The final thing I can think to mention here is paragraphs. Compiling the document you will see that each of these paragraphs after the first is tab indented, though inspection of the source will show you that all the text is left-aligned with a blank line between. In general \LaTeX\ ignores whitespace, so if I introduce a line-break and tab indent in the source code here:
+	\LaTeX\ just ignores it.
+
+On the other hand if I leave a blank line between the previous sentence and this one I am asking \LaTeX\ to treat this as a separate paragraph, and essentially requesting that it do `the right thing'. One can request a line-break using a double backslash.\\ Like so. 
+
 \section{Mathematics}
+
+As mentioned in the presentation there are two main `math(s) modes', inline and display. Inline is accessed with the delimiters \verb:\(: and \verb:\):, and produces unlabelled inline equations like \(M = USV^{\dagger}\). On the other hand display mode is invoked by beginning an equation environment with \verb:\begin{equation}:, and produces separate labelled equations like,
+\begin{equation}
+\hat{H} = \sum_{i}^{N} \left[ \Delta_{01}\hat{a}_{i}^{\dagger}\hat{a}_{i} + \left(\frac{\Delta_{02}}{2} - \Delta_{01}\right)\hat{a}_{i}^{\dagger}\hat{a}_{i}^{\dagger}\hat{a}_{i}\hat{a}_{i} + \frac{\Omega_{D}}{\sqrt{2}}\hat{a}_{i}\hat{a}_{i} + \frac{\Omega_{D}^{*}}{\sqrt{2}}\hat{a}_{i}^{\dagger}\hat{a}_{i}^{\dagger} \right] - J\sum_{\langle ij \rangle}^{N} \left[ \hat{a}_{i}^{\dagger}\hat{a}_{j} + \hat{a}_{i}\hat{a}_{j}^{\dagger}\right],
+\label{eq:1}
+\end{equation}
+where I have made liberal use of both the subscript operator \verb:_{}:, and the superscript operator \verb:^{}:. The amsmath package as well as various extra maths symbols also adds a couple of particularly useful features, the first of which is the align environment. It is another display math environment, but it allows one to easily split equations across multiple levels -- useful for showing working out, and for particularly long equations like,
+\begin{align}
+\dot{\rho}(t) = -i\left[ \hat{H}, \rho \right] &+ \sum_{i}^{N} \left[ \frac{\gamma_{01}}{2}\left(2\hat{a}_{i}\hat{a}_{i}\hat{a}_{i}^{\dagger} \rho \hat{a}_{i}\hat{a}_{i}^{\dagger}\hat{a}_{i}^{\dagger} - \hat{a}_{i}\hat{a}_{i}^{\dagger}\hat{a}_{i}^{\dagger} \hat{a}_{i}\hat{a}_{i}\hat{a}_{i}^{\dagger} \rho - \rho \hat{a}_{i}\hat{a}_{i}^{\dagger}\hat{a}_{i}^{\dagger} \hat{a}_{i}\hat{a}_{i}\hat{a}_{i}^{\dagger}\right) \right. \notag \\
+&+ \left. \frac{\gamma_{12}}{2} \left(2  \right) \right. \notag \\
+\label{eq:2}
+\end{align}
 
 \section{Graphics}
 
