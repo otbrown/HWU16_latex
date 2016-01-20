@@ -19,6 +19,8 @@
 \setbeamertemplate{bibliography entry note}{}
 \renewcommand\bibfont{\scriptsize}
 
+\setbeamerfont{caption}{size=\scriptsize}
+
 \lstset{basicstyle=\selectfont\ttfamily\color{white},
   showstringspaces=false,
   commentstyle=\color{red},
@@ -143,7 +145,17 @@ In these more enlightened times you'll almost certainly be using an IDE to write
 \begin{frame}
 \frametitle{How does it work?}
 \framesubtitle{Using \LaTeX\ at Heriot-Watt}
-At Heriot-Watt all computers linked to the main system have TeXworks installed
+At Heriot-Watt all computers linked to the main system have TeXworks installed. It can be found under `HW Programs \(\rightarrow\) MikTeX 2.9'.
+\vspace{\baselineskip}
+
+\alert{Warning:} TeXworks has a big green `Typeset' button. It is quite handy. You can also use the keyboard ctrl\(+\)T. TeXworks `Typeset' button, unlike some other TeX IDEs does not just compile the most recent saved version of the .tex file. It \alert{saves} the .tex file and then compiles the document. \alert{You can lose work this way}.
+
+\begin{figure}[!h]
+\centering
+\includegraphics[width=0.6\linewidth]{maniscalaco}
+\label{fig:2}
+\caption{...and then what happens is you miss mistakes you'd corrected between the last backup and the version you accidentally wiped, and ultimately spell your supervisor's name wrong on the front cover of your dissertation. Yup.}
+\end{figure}
 \end{frame}
 
 \section{Why use it?}
@@ -273,7 +285,7 @@ Honestly, probably the weakest part of working with \LaTeX...
 	\includegraphics[width=0.6\linewidth]
 	{two_head_tortoise}
 	\caption{A two-headed tortoise!}
-	\label{fig:2}
+	\label{fig:3}
 \end{figure}
 \end{lstlisting}
 
@@ -281,7 +293,7 @@ Honestly, probably the weakest part of working with \LaTeX...
 	\centering
 	\includegraphics[width=0.5\linewidth]{two_head_tortoise}
 	\caption{A two-headed tortoise!}
-	\label{fig:2}
+	\label{fig:3}
 \end{figure}
 \end{frame}
 
