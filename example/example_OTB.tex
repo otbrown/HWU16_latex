@@ -81,7 +81,7 @@ To cite references using BibTeX one needs to include \verb:\bibliographystyle{}:
 
 Bibliography styles are given by .bst files and dictate both the citation style and the reference list style. Here I am using a modified version of the apsrev4-1 style provided by the American Physical Society for their publications (they actually even have their own `revtex' document class!). The .bib file itself is simple enough to write by hand for only a few references (or for references to websites), but many journals will let you download a bibentry directly. Referencing software such as Mendeley and EndNote can also be used to automatically create .bib files. For EndNote one needs to install a plugin which can be found at \url{http://endnote.com/downloads/style/bibtex-export}, and be sure to write a citation key into the `Label' field on the EndNote entry! Mendeley will generate a citation key for you in the format [First-author-surname][year]. For example \verb:\cite{Brown2013}: references a paper exported from Mendeley in example\_OTB.bib \cite{Brown2013}.  
 
-The only other thing you need to know about referencing is that the document needs to be compiled twice for cross-referencing (pdflatex-pdflatex), and four times for referencing with BibTeX (pdflatex-pdflatex-bibtex-pdflatex)! Most IDEs will let you do this with a single button press.
+The only other thing you need to know about referencing is that the document needs to be compiled twice for cross-referencing (pdflatex-pdflatex), and four times for referencing with BibTeX (pdflatex-bibtex-pdflatex-pdflatex)! Most IDEs will let you do this with a single button press. TeXworks,  Heriot-Watt's chosen LaTeX editor is not one of them.
 
 \bibliographystyle{apsrev4-1-title}
 \bibliography{example_OTB}
