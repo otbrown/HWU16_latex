@@ -41,11 +41,26 @@ As mentioned in the presentation there are two main `math(s) modes', inline and 
 where I have made liberal use of both the subscript operator \verb:_{}:, and the superscript operator \verb:^{}:. The amsmath package as well as various extra maths symbols also adds a couple of particularly useful features, the first of which is the align environment. It is another display math environment, but it allows one to easily split equations across multiple levels -- useful for showing working out, and for particularly long equations like,
 \begin{align}
 \dot{\rho}(t) = -i\left[ \hat{H}, \rho \right] &+ \sum_{i}^{N} \left[ \frac{\gamma_{01}}{2}\left(2\hat{a}_{i}\hat{a}_{i}\hat{a}_{i}^{\dagger} \rho \hat{a}_{i}\hat{a}_{i}^{\dagger}\hat{a}_{i}^{\dagger} - \hat{a}_{i}\hat{a}_{i}^{\dagger}\hat{a}_{i}^{\dagger} \hat{a}_{i}\hat{a}_{i}\hat{a}_{i}^{\dagger} \rho - \rho \hat{a}_{i}\hat{a}_{i}^{\dagger}\hat{a}_{i}^{\dagger} \hat{a}_{i}\hat{a}_{i}\hat{a}_{i}^{\dagger}\right) \right. \notag \\
-&+ \left. \frac{\gamma_{12}}{2} \left(2  \right) \right. \notag \\
+&+ \left. \frac{\gamma_{12}}{2} \left(2 \hat{a}_{i}^{\dagger}\hat{a}_{i}\hat{a}_{i} \rho \hat{a}_{i}^{\dagger}\hat{a}_{i}^{\dagger}\hat{a}_{i} - \hat{a}_{i}^{\dagger}\hat{a}_{i}^{\dagger}\hat{a}_{i} \hat{a}_{i}^{\dagger}\hat{a}_{i}\hat{a}_{i} \rho - \rho \hat{a}_{i}^{\dagger}\hat{a}_{i}^{\dagger}\hat{a}_{i} \hat{a}_{i}^{\dagger}\hat{a}_{i}\hat{a}_{i} \right) \right],
 \label{eq:2}
 \end{align}
+where \verb:&: has been used to mark where the equations should be made to align (at the +), and the usual \verb:\\: marks the linebreak. The command \verb:\notag: has been used to suppress the label from the first line, but it is possible to have every line labelled independently, for example if one wants to express a series of simultaneous equations.
+
+Another highly useful feature added by amsmath is the matrix environment, which allows one to easily typeset a matrix with a particular set of delimiters. The usual parentheses delimited matrix for example, is given by \verb:\begin{pmatrix}:. It looks like this, 
+
+\begin{equation}
+\hat{H} = 
+\begin{pmatrix}
+	0 & 0 & \Omega_{D} \\
+	0 & \Delta_{01} & 0 \\
+	\Omega_{D}^{*} & 0 & \Delta_{02}
+\end{pmatrix},
+\label{eq:3}
+\end{equation}
+which is the same Hamiltonian as \cref{eq:1}.
 
 \section{Graphics}
+For graphics you need to include the graphicx package. 
 
 \section{References}
 
