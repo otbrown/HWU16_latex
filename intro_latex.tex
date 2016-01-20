@@ -92,7 +92,7 @@
 \framesubtitle{Obtaining \LaTeX}
 \begin{itemize}
 \item \alert{Hold on.} There's a pretty good chance if you're using a uni computer, any kind of linux machine, or you've installed a \LaTeX\ IDE that you already have it installed!
-\item Having multiple TeX distributions installed can quite messy, so it's definitely worth checking.
+\item Having multiple TeX distributions installed can be quite messy, so it's definitely worth checking.
 \item If you definitely don't then the easiest way is probably to download the TeX Live package from \url{http://www.tug.org/texlive/} -- be warned, the download can take some time...
 \item More information on obtaining TeX and \LaTeX\ can be found at \url{https://latex-project.org/ftp.html}.
 \end{itemize}
@@ -229,34 +229,37 @@ So what about the language itself? The following is a pretty standard `preamble'
 \end{lstlisting}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[fragile]
 \frametitle{Basics}
 \framesubtitle{Commands}
 \begin{itemize}
-\item \textbackslash\ identifies a command sequence (\textbackslash textbackslash typesets a \textbackslash).
-\item \textbackslash\ is also an escape sequence for typesetting symbols like \{, \}, and \&.
-\item \textbackslash\textbackslash\ \emph{requests} a newline.
-\item \textbackslash emph\{\} for \emph{italics}, \textbackslash textbf\{\} for \textbf{bold}.
-\item \textbackslash section\{Section Title\} and \textbackslash subsection\{Subsection Title\} creates sections and subsections which are automatically labelled and included in your table of contents.
-\item \textbackslash label\{\} can be used to label sections, figures, equations, etc. and is \emph{highly} recommended. Especially in conjunction with the cleveref and hyperref packages.
+\item \verb:\: identifies a command sequence (\verb:\textbackslash: typesets a \textbackslash).
+\item \verb:\: is also an escape sequence for typesetting symbols like \{, \}, and \&.
+\item \verb:\\: \emph{requests} a newline.
+\item \verb:\emph{}: for \emph{italics}, \verb:\textbf{}: for \textbf{bold}.
+\item \verb:\section{Section Title}: creates sections which are automatically labelled and included in your table of contents.
+\item \verb:\label{}: can be used to label sections, figures, equations, etc. and is \emph{highly} recommended. Especially in conjunction with the cleveref and hyperref packages.
 \end{itemize}
 \end{frame}
 
-\begin{frame}
+\begin{frame}[fragile]
 \frametitle{Basics}
 \framesubtitle{Mathematics}
-Inline maths:\\
-\quad \textbackslash( E = \textbackslash frac\{1\}\{2\} mv\^{}\{2\} \textbackslash) \\
+Inline maths:
+\begin{verbatim}
+    \( E = \frac{1}{2} mv^{2} \)
+\end{verbatim}
+One of Einstein's discoveries was the equation \(E = \frac{1}{2}mv^{2}\), equating energy and mass. \\
 \vspace{\baselineskip}
-\quad One of Einstein's discoveries was the equation \(E = \frac{1}{2}mv^{2}\), equating energy and mass. \\
-\vspace{\baselineskip}
-Display maths:\\
-\quad \textbackslash begin\{equation\} \\
-\quad \quad \textbackslash rho = \textbar \textbackslash psi \textbackslash rangle \textbackslash langle \textbackslash psi \textbar \\
-\quad \quad \textbackslash label\{eq:1\} \\
-\quad \textbackslash end\{equation\} \\
+Display maths:
+\begin{verbatim}
 \begin{equation}
-\quad \rho = | \psi \rangle \langle \psi |
+    \rho = | \psi \rangle \langle \psi |
+\label{eq:1}
+\end{equation}
+\end{verbatim}
+\begin{equation}
+\rho = | \psi \rangle \langle \psi |
 \label{eq:1}
 \end{equation}
 \end{frame}
@@ -307,13 +310,13 @@ The format is quite straightforward, and many journals provide BibTeX citations 
 \begin{frame}[fragile]
 \frametitle{Basics}
 \framesubtitle{BibTeX}
-Then you need to include a \textbackslash bibliographystyle\{\} command, and \textbackslash bibliography\{your-bib-file\} in the document:
+Then you need to include a \verb:\bibliographystyle{}: command, and \verb:\bibliography{}: in the document:
 \begin{lstlisting}[label={lst:6}]
 \bibliographystyle{acm}
 \bibliography{intro_latex}
 \end{lstlisting}
 
-You then simply use the \textbackslash cite\{citation-label\} command to reference things like this conference paper I wrote \cite{Bea13}, or the book \emph{Numerical Recipes} \cite{NR}.
+You then simply use the \verb:\cite{citation-label}: command to reference things like this conference paper I wrote \cite{Bea13}, or the book \emph{Numerical Recipes} \cite{NR}.
 \end{frame}
 
 \begin{frame}
