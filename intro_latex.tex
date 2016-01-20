@@ -143,9 +143,7 @@ In these more enlightened times you'll almost certainly be using an IDE to write
 \begin{frame}
 \frametitle{How does it work?}
 \framesubtitle{Using \LaTeX\ at Heriot-Watt}
-The most important thing to know for now of course, is how exactly to use \LaTeX\ on the uni system.
-
-** ASK DAWN IF THIS IS ACTUALLY IMPORTANT **
+At Heriot-Watt all computers linked to the main system have TeXworks installed
 \end{frame}
 
 \section{Why use it?}
@@ -296,27 +294,31 @@ BibTeX is a simple to use, but powerful referencing tool. First you need a .bib 
 \begin{lstlisting}[label={lst:6}]
 @book{NR,
 year={2007},
-author={Press, William H. and Teukolsky, Saul A. and Vetterling, William T. and Flannery, Brian P.},
-title={Numerical Recipes -- The Art of Scientific Computing},
+author={Press, William H. and 
+Teukolsky, Saul A. and 
+Vetterling, William T. and 
+Flannery, Brian P.},
+title={Numerical Recipes -- 
+The Art of Scientific Computing},
 publisher={Cambridge University Press},
 edition={3E},
 }
 \end{lstlisting}
-
-The format is quite straightforward, and many journals provide BibTeX citations which you can copy and paste into your own .bib file. In this example `NR' is the citation label.
 
 \end{frame}
 
 \begin{frame}[fragile]
 \frametitle{Basics}
 \framesubtitle{BibTeX}
-Then you need to include a \verb:\bibliographystyle{}: command, and \verb:\bibliography{}: in the document:
+The format is quite straightforward, and many journals provide BibTeX citations which you can copy and paste into your own .bib file. Additionally, EndNote and Mendeley can export .bib files.
+\vspace{\baselineskip}
+Next you need to include a \verb:\bibliographystyle{}: command, and \verb:\bibliography{}: in the document:
 \begin{lstlisting}[label={lst:7}]
 \bibliographystyle{acm}
 \bibliography{intro_latex}
 \end{lstlisting}
 
-You then simply use the \verb:\cite{citation-label}: command to reference things like this conference paper I wrote \cite{Bea13}, or the book \emph{Numerical Recipes} \cite{NR}.
+You then simply use the \verb:\cite{citation-key}: command to reference things like this conference paper I wrote \cite{Bea13}, or the book \emph{Numerical Recipes} \cite{NR}.
 \end{frame}
 
 \begin{frame}
