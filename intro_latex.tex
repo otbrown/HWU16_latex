@@ -86,6 +86,41 @@
 \end{itemize}
 \end{frame}
 
+\section{Why use it?}
+
+\subsection[Cons]{Disadvantages}
+\begin{frame}
+\frametitle{Why use it?}
+\framesubtitle{Disadvantages}
+
+\begin{itemize}
+\item `Programming' is scary!
+\item I can't see what I'm doing!
+\item Graphics handling is painful.
+\item Tables are a faff.
+\item The TeX ecosystem is quite diverse with many distributions, IDEs, packages -- which do you choose?
+\item For the above reason, portability can be an issue.
+\item Intermediate files can cause a lot of clutter (use IDE's `clean' tool).
+\item Little to no support for multimedia (that I know of).
+\end{itemize}
+\end{frame}
+
+\subsection[Pros]{Advantages}
+\begin{frame}
+\frametitle{Why use it?}
+\framesubtitle{Advantages}
+
+\begin{itemize}
+\item Typesetting maths: \(\mathcal{L}\{\rho\} = -i[\hat{H}, \rho] - \frac{\gamma}{2}\left(2 \hat{a}\rho\hat{a}^{\dagger} - \hat{a}^{\dagger}\hat{a}\rho - \rho\hat{a}^{\dagger}\hat{a}\right)\)
+\item Powerful referencing tool: BibTeX
+\item Label system makes cross-referencing easy.
+\item Low file-size, so version control systems like Git can be used.
+\item Low file-size so large documents won't crash!
+\item Many journals provide standard article templates.
+\item In principle allows a very high degree of control over document layout.
+\end{itemize}
+\end{frame}
+
 \section{How does it work?}
 
 \subsection{Obtaining \LaTeX}
@@ -158,41 +193,6 @@ At Heriot-Watt all computers linked to the main system have TeXworks installed. 
 \end{figure}
 \end{frame}
 
-\section{Why use it?}
-
-\subsection[Cons]{Disadvantages}
-\begin{frame}
-\frametitle{Why use it?}
-\framesubtitle{Disadvantages}
-
-\begin{itemize}
-\item `Programming' is scary!
-\item I can't see what I'm doing!
-\item Graphics handling is painful.
-\item Tables are a faff.
-\item The TeX ecosystem is quite diverse with many distributions, IDEs, packages -- which do you choose?
-\item For the above reason, portability can be an issue.
-\item Intermediate files can cause a lot of clutter (use IDE's `clean' tool).
-\item Little to no support for multimedia (that I know of).
-\end{itemize}
-\end{frame}
-
-\subsection[Pros]{Advantages}
-\begin{frame}
-\frametitle{Why use it?}
-\framesubtitle{Advantages}
-
-\begin{itemize}
-\item Typesetting maths: \(\mathcal{L}\{\rho\} = -i[\hat{H}, \rho] - \frac{\gamma}{2}\left(2 \hat{a}\rho\hat{a}^{\dagger} - \hat{a}^{\dagger}\hat{a}\rho - \rho\hat{a}^{\dagger}\hat{a}\right)\)
-\item Powerful referencing tool: BibTeX
-\item Label system makes cross-referencing easy.
-\item Low file-size, so version control systems like Git can be used.
-\item Low file-size so large documents won't crash!
-\item Many journals provide standard article templates.
-\item In principle allows a very high degree of control over document layout.
-\end{itemize}
-\end{frame}
-
 \section{Basics}
 \lstset{
   language={TeX},
@@ -205,8 +205,21 @@ At Heriot-Watt all computers linked to the main system have TeXworks installed. 
 
 \begin{frame}[fragile]
 \frametitle{Basics}
+\framesubtitle{Commands}
+\begin{itemize}
+\item \verb:\: identifies a command sequence (\verb:\textbackslash: typesets a \textbackslash).
+\item \verb:\: is also an escape sequence for typesetting symbols like \{, \}, and \&.
+\item \verb:\\: \emph{requests} a newline.
+\item \verb:\emph{}: for \emph{italics}, \verb:\textbf{}: for \textbf{bold}.
+\item \verb:\section{Section Title}: creates sections which are automatically labelled and included in your table of contents.
+\item \verb:\label{}: can be used to label sections, figures, equations, etc. and is \emph{highly} recommended. Especially in conjunction with the cleveref and hyperref packages.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+\frametitle{Basics}
 \framesubtitle{Preamble}
-So what about the language itself? The following is a pretty standard `preamble' for scientific documents:
+The following is a pretty standard `preamble' for scientific documents:
 \begin{lstlisting}[label={lst:3}]
 \documentclass[a4paper,twoside]{article}
 
@@ -241,19 +254,6 @@ So what about the language itself? The following is a pretty standard `preamble'
 
 \begin{frame}[fragile]
 \frametitle{Basics}
-\framesubtitle{Commands}
-\begin{itemize}
-\item \verb:\: identifies a command sequence (\verb:\textbackslash: typesets a \textbackslash).
-\item \verb:\: is also an escape sequence for typesetting symbols like \{, \}, and \&.
-\item \verb:\\: \emph{requests} a newline.
-\item \verb:\emph{}: for \emph{italics}, \verb:\textbf{}: for \textbf{bold}.
-\item \verb:\section{Section Title}: creates sections which are automatically labelled and included in your table of contents.
-\item \verb:\label{}: can be used to label sections, figures, equations, etc. and is \emph{highly} recommended. Especially in conjunction with the cleveref and hyperref packages.
-\end{itemize}
-\end{frame}
-
-\begin{frame}[fragile]
-\frametitle{Basics}
 \framesubtitle{Mathematics}
 Inline maths:
 \begin{verbatim}
@@ -279,7 +279,7 @@ Display maths:
 \framesubtitle{Images}
 Honestly, probably the weakest part of working with \LaTeX...
 
-\begin{lstlisting}[label={lst:5}]
+\begin{lstlisting}[label={lst:5},basicstyle=\small]
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width=0.6\linewidth]
@@ -348,7 +348,7 @@ Unsurprisingly, many journals also provide their own BibTeX style files. Always 
 \begin{frame}
 \frametitle{Resources}
 \begin{itemize}
-\item Source for this presentation, as well as examples and exercises can be downloaded from: \url{https://github.com/otbrown/HWU16_latex}.
+\item Source for this presentation, as well as an example document can be downloaded from: \url{https://github.com/otbrown/HWU16_latex}.
 \item Main \LaTeX\ project website: \url{http://latex-project.org/}.
 \item The \LaTeX\ wikibook is great for quickly looking up standard commands -- especially Mathematics: \url{https://en.wikibooks.org/wiki/LaTeX}
 \item For BibTeX, the main Wikipedia page is a little more useful: \url{https://en.wikipedia.org/wiki/BibTeX}.
