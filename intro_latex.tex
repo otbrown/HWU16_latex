@@ -4,7 +4,7 @@
 \usetheme[hideothersubsections]{PaloAlto}
 \usecolortheme{seagull}
 \usefonttheme{serif}
-\pgfdeclareimage[height=1cm]{uni}{HWU_logo}
+\pgfdeclareimage[width=1.4cm]{uni}{HWU_logo}
 \logo{\pgfuseimage{uni}}
 
 \usepackage{hyperref}
@@ -29,9 +29,9 @@
 }
 
 \title{Introduction to \LaTeX}
-\author[OTB \& LF]{Oliver T. Brown \& Liam Fitzgerald}
+\author[OTB]{Oliver T. Brown}
 \institute[HWU]{Heriot-Watt University}
-\date[2016-01-26]{26th January 2016}
+\date[2017-01-24]{24th January 2016}
 
 \begin{document}
 
@@ -111,7 +111,7 @@
 \framesubtitle{Advantages}
 
 \begin{itemize}
-\item Typesetting maths: \(\mathcal{L}\{\rho\} = -i[\hat{H}, \rho] - \frac{\gamma}{2}\left(2 \hat{a}\rho\hat{a}^{\dagger} - \hat{a}^{\dagger}\hat{a}\rho - \rho\hat{a}^{\dagger}\hat{a}\right)\)
+\item Typesetting maths: \(\mathcal{L}\{\rho\} = -i[\hat{H}, \rho] - \frac{\gamma}{2}\sum_{j}\left(2 \hat{a}_{j}\rho\hat{a}_{j}^{\dagger} - \hat{a}_{j}^{\dagger}\hat{a}_{j}\rho - \rho\hat{a}_{j}^{\dagger}\hat{a}_{j}\right)\)
 \item Powerful referencing tool: BibTeX
 \item Label system makes cross-referencing easy.
 \item Low file-size, so version control systems like Git can be used.
